@@ -36,12 +36,39 @@ include 'includes/connect.php';
   <link href="js/plugins/data-tables/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
   
      <style type="text/css">
+      .input-field {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #3c763d;
+  box-shadow: 0 0 8px #3c763d; 
+}
+
+label {
+  font-weight: bold;
+  color: #333;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+
   .input-field div.error{
     position: relative;
     top: -1rem;
     left: 0rem;
     font-size: 0.8rem;
     color:#FF4081;
+
     -webkit-transform: translateY(0%);
     -ms-transform: translateY(0%);
     -o-transform: translateY(0%);
@@ -50,6 +77,7 @@ include 'includes/connect.php';
   .input-field label.active{
       width:100%;
   }
+  
   .left-alert input[type=text] + label:after, 
   .left-alert input[type=password] + label:after, 
   .left-alert input[type=email] + label:after, 
@@ -210,27 +238,40 @@ include 'includes/connect.php';
 
                     <tbody>
 				<?php
-				$result = mysqli_query($con, "SELECT * FROM items");
-				while($row = mysqli_fetch_array($result))
-				{
-					echo '<tr><td><div class="input-field col s12"><label for="'.$row["id"].'_name">Name</label>';
-					echo '<input value="'.$row["name"].'" id="'.$row["id"].'_name" name="'.$row['id'].'_name" type="text" data-error=".errorTxt'.$row["id"].'"><div class="errorTxt'.$row["id"].'"></div></td>';					
-					echo '<td><div class="input-field col s12 "><label for="'.$row["id"].'_price">Price</label>';
-					echo '<input value="'.$row["price"].'" id="'.$row["id"].'_price" name="'.$row['id'].'_price" type="text" data-error=".errorTxt'.$row["id"].'"><div class="errorTxt'.$row["id"].'"></div></td>';                   
-					echo '<td>';
-					if($row['deleted'] == 0){
-						$text1 = 'selected';
-						$text2 = '';
-					}
-					else{
-						$text1 = '';
-						$text2 = 'selected';						
-					}
-					echo '
-					<img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" id="'.$row["id"].'_image" name="'.$row['id'].'_image" type="file" data-error=".errorTxt'.$row["id"].'"><div class="errorTxt'.$row["id"].'"></div>
-                    </td></tr>';
-				}
-				?>
+    $result = mysqli_query($con, "SELECT * FROM items");
+    while ($row = mysqli_fetch_array($result)) {
+        echo '<tr>';
+        echo '<td>';
+        echo '<div class="input-field col s12">';
+        echo '<label for="' . $row["id"] . '_name">Name</label>';
+        echo '<input value="' . $row["name"] . '" id="' . $row["id"] . '_name" name="' . $row['id'] . '_name" type="text" class="validate" data-error=".errorTxt' . $row["id"] . '">';
+        echo '<div class="errorTxt' . $row["id"] . '"></div>';
+        echo '</div>';
+        echo '</td>';
+
+        echo '<td>';
+        echo '<div class="input-field col s12 ">';
+        echo '<label for="' . $row["id"] . '_price">Price</label>';
+        echo '<input value="' . $row["price"] . '" id="' . $row["id"] . '_price" name="' . $row['id'] . '_price" type="text" class="validate" data-error=".errorTxt' . $row["id"] . '">';
+        echo '<div class="errorTxt' . $row["id"] . '"></div>';
+        echo '</div>';
+        echo '</td>';
+
+        echo '<td>';
+        if ($row['deleted'] == 0) {
+            $text1 = 'selected';
+            $text2 = '';
+        } else {
+            $text1 = '';
+            $text2 = 'selected';
+        }
+        echo '<img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '" id="' . $row["id"] . '_image" name="' . $row['id'] . '_image" type="file" class="validate" data-error=".errorTxt' . $row["id"] . '">';
+        echo '<div class="errorTxt' . $row["id"] . '"></div>';
+        echo '</td>';
+        echo '</tr>';
+    }
+?>
+
                     </tbody>
 </table>
               </div>
