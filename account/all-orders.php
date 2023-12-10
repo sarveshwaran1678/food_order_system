@@ -162,8 +162,7 @@ include 'includes/connect.php';
 
         <!--start container-->
         <div class="container">
-          <p class="caption">List of orders by customers with details</p>
-          <div class="divider"></div>
+
           <!--editableTable-->
 <div id="work-collections" class="seaction">
              
@@ -177,18 +176,17 @@ include 'includes/connect.php';
 					$sql = mysqli_query($con, "SELECT * FROM orders WHERE status LIKE '$status';");
 					echo '<div class="row">
                 <div>
-                    <h4 class="header">List</h4>
                     <ul id="issues-collection" class="collection">';
 					while($row = mysqli_fetch_array($sql))
 					{
 						$status = $row['status'];
 						$deleted = $row['deleted'];
 						echo '<li class="collection-item avatar">
-                              <i class="mdi-content-content-paste red circle"></i>
-                              <span class="collection-header">Order No. '.$row['id'].'</span>
-                              <p><strong>Date:</strong> '.$row['date'].'</p>
-                              <p><strong>Payment Type:</strong> '.$row['payment_type'].'</p>							  
-							  <p><strong>Status:</strong> '.($deleted ? $status : '
+                              <i class="mdi-content-content-paste black circle"></i>
+                              <span class="collection-header"><strong>Order No.</strong> '.$row['id'].'</span> -
+                             <strong>Date:</strong> '.$row['date'].' - 
+                             <strong>Payment Type:</strong> '.$row['payment_type'].'	 - 						  
+							 <strong>Status:</strong> '.($deleted ? $status : ' Pune
 							  <form method="post" action="routers/edit-orders.php">
 							    <input type="hidden" value="'.$row['id'].'" name="id">
 								<select name="status">
@@ -197,7 +195,7 @@ include 'includes/connect.php';
 								<option value="Cancelled by Admin" '.($status=='Cancelled by Admin' ? 'selected' : '').'>Cancelled by Admin</option>
 								<option value="Paused" '.($status=='Paused' ? 'selected' : '').'>Paused</option>								
 								</select>
-							  ').'</p>
+							  ').'
                               <a href="#" class="secondary-content"><i class="mdi-action-grade"></i></a>
                               </li>';
 						$order_id = $row['id'];
@@ -208,11 +206,11 @@ include 'includes/connect.php';
 							{
 							echo '<li class="collection-item">
                             <div class="row">
-							<p><strong>Name: </strong>'.$row3['name'].'</p>
-							<p><strong>Address: </strong>'.$row['address'].'</p>
-							'.($row3['contact'] == '' ? '' : '<p><strong>Contact: </strong>'.$row3['contact'].'</p>').'	
-							'.($row3['email'] == '' ? '' : '<p><strong>Email: </strong>'.$row3['email'].'</p>').'		
-							'.(!empty($row['description']) ? '<p><strong>Note: </strong>'.$row['description'].'</p>' : '').'								
+							<strong>Name: </strong>'.$row3['name'].' - 
+							<strong>Address: </strong>'.$row['address'].' - 
+							'.($row3['contact'] == '' ? '' : '<strong>Contact: </strong>'.$row3['contact'].'').' - 	
+							'.($row3['email'] == '' ? '' : '<strong>Email: </strong>'.$row3['email'].'').'	- 	 
+							'.(!empty($row['description']) ? '<strong>Note: </strong>'.$row['description'].'' : '').'								
                             </li>';							
 							}
 						while($row1 = mysqli_fetch_array($sql1))
