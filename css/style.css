@@ -886,6 +886,9 @@ ul.tags li a, ul.social_icon li a,
 
 
 /* ============= Featured Section ============== */
+#specialities{
+  background-color: gray;
+}
 .feature_wrap h3 a{ 
  font-size:18px;
  font-weight:bold;
@@ -970,8 +973,8 @@ ul.tags li a, ul.social_icon li a,
 #service-slider .owl-next{ right:10px;}
 #service-slider .owl-prev:hover, #service-slider .owl-prev:focus,
 #service-slider .owl-next:hover, #service-slider .owl-next:hover{
-	background:black;
-	3color:#fff;
+	background:#e25111;
+	color:#fff;
 }
 /* ================== Our Services Ends ==================*/
 
