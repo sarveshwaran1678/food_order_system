@@ -87,11 +87,12 @@ $username = $row['username'];
 
 <body>
   <!-- Start Page Loading -->
-  <div id="loader-wrapper">
-      <div id="loader"></div>        
-      <div class="loader-section section-left"></div>
-      <div class="loader-section section-right"></div>
-  </div>
+  <div class="loader"> 
+   <div class="cssload-container">
+     <div class="cssload-circle"></div>
+     <div class="cssload-circle"></div>
+   </div>
+</div>
   <!-- End Page Loading -->
 
   <!-- //////////////////////////////////////////////////////////////////////////// -->
