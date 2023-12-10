@@ -34,7 +34,7 @@ include 'includes/connect.php';
  
 </head>
 
-<body>
+<body style="font-family:georgia,garamond,serif;">
   <!-- Start Page Loading -->
   <div id="loader-wrapper">
       <div id="loader"></div>        
@@ -46,7 +46,7 @@ include 'includes/connect.php';
   <!-- //////////////////////////////////////////////////////////////////////////// -->
 
   <!-- START HEADER -->
-  <header id="header" class="page-topbar">
+  <header id="header" class="page-topbar" >
         <!-- start header nav-->
         <div class="navbar-fixed">
             <nav class="navbar-color">
