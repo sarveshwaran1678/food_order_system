@@ -385,8 +385,8 @@ ul.menu_widget li{
 	line-height:18px;
 }
 ul.menu_widget li:nth-child(2n+2){
-	background:rgba(226, 81, 17, 0);
-	color:#000000;
+	background:white;
+	color:black;
 }
 ul.menu_widget li > span{float:right;}
 ul.tags{}
