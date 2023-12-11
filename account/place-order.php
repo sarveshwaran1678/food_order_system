@@ -106,7 +106,7 @@ $verified = $row['verified'];
                       <li><h1 class="logo-wrapper"><a href="index.php" class="brand-logo darken-1"><img src="images/logo.png" alt="logo"></a> <span class="logo-text">Logo</span></h1></li>
                     </ul>
                     <ul class="right hide-on-med-and-down">                        
-                        <li><a href="#" class="waves-effect waves-block waves-light"><i class="mdi-editor-attach-money"><?php echo $balance;?></i></a>
+                        <li><a href="#" class="waves-effect waves-block waves-light"><i class="mdi mdi-currency-inr"></i></a>
                         </li>
                     </ul>						
                 </div>
@@ -292,7 +292,7 @@ $verified = $row['verified'];
 <ul id="issues-collection" class="collection">
 <?php
     echo '<li class="collection-item avatar">
-        <i class="mdi-content-content-paste red circle"></i>
+        <i class="mdi-content-content-paste black circle"></i>
         <p><strong>Name:</strong>'.$name.'</p>
 		<p><strong>Contact Number:</strong> '.$contact.'</p>
         <a href="#" class="secondary-content"><i class="mdi-action-grade"></i></a>';

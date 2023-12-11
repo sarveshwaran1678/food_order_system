@@ -58,7 +58,7 @@ include 'includes/wallet.php';
                       <li><h1 class="logo-wrapper"><a href="index.php" class="brand-logo darken-1"><img src="images/logo.png" alt="logo"></a> <span class="logo-text">Logo</span></h1></li>
                     </ul>
                     <ul class="right hide-on-med-and-down">                        
-                        <li><a href="#"  class="waves-effect waves-block waves-light"><i class="mdi-editor-attach-money"><?php echo $balance;?></i></a>
+                        <li><a href="#"  class="waves-effect waves-block waves-light"><i class="mdi mdi-currency-inr"></i></a>
                         </li>
                     </ul>						
                 </div>
@@ -184,19 +184,18 @@ include 'includes/wallet.php';
 					$sql = mysqli_query($con, "SELECT * FROM orders WHERE customer_id = $user_id AND status LIKE '$status';;");
 					echo '              <div class="row">
                 <div>
-                    <h4 class="header">List</h4>
                     <ul id="issues-collection" class="collection">';
 					while($row = mysqli_fetch_array($sql))
 					{
 						$status = $row['status'];
 						echo '<li class="collection-item avatar">
-                              <i class="mdi-content-content-paste red circle"></i>
-                              <span class="collection-header">Order No. '.$row['id'].'</span>
-                              <p><strong>Date:</strong> '.$row['date'].'</p>
-                              <p><strong>Payment Type:</strong> '.$row['payment_type'].'</p>
-							  <p><strong>Address: </strong>'.$row['address'].'</p>							  
-                              <p><strong>Status:</strong> '.($status=='Paused' ? 'Paused <a  data-position="bottom" data-delay="50" data-tooltip="Please contact administrator for further details." class="btn-floating waves-effect waves-light tooltipped cyan">    ?</a>' : $status).'</p>							  
-							  '.(!empty($row['description']) ? '<p><strong>Note: </strong>'.$row['description'].'</p>' : '').'						                               
+                              <i class="mdi-content-content-paste black circle"></i>
+                              <span class="collection-header">Order No. '.$row['id'].'</span> -
+                              <strong>Date:</strong> '.$row['date'].' -
+                              <strong>Payment Type:</strong> '.$row['payment_type'].' -
+							  <strong>Address: </strong>'.$row['address'].'		-					  
+                              <strong>Status:</strong> '.($status=='Paused' ? 'Paused <a  data-position="bottom" data-delay="50" data-tooltip="Please contact administrator for further details." class="btn-floating waves-effect waves-light tooltipped cyan">    ?</a>' : $status).'	-						  
+							  '.(!empty($row['description']) ? '<strong>Note: </strong>'.$row['description'].'' : '').'						                               
 							  <a href="#" class="secondary-content"><i class="mdi-action-grade"></i></a>
                               </li>';
 						$order_id = $row['id'];
@@ -235,7 +234,7 @@ include 'includes/wallet.php';
                                                 <span><strong>Rs. '.$row['total'].'</strong></span>
                                             </div>';
 								if(!preg_match('/^Cancelled/', $status)){
-									if($status != 'Delivered'){
+									if($status != 'Deliveblack'){
 								echo '<form action="routers/cancel-order.php" method="post">
 										<input type="hidden" value="'.$id.'" name="id">
 										<input type="hidden" value="Cancelled by Customer" name="status">	

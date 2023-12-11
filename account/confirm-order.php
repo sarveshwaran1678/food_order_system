@@ -84,7 +84,7 @@ if($continue){
                       <li><h1 class="logo-wrapper"><a href="index.php" class="brand-logo darken-1"><img src="images/logo.png" alt="logo"></a> <span class="logo-text">Logo</span></h1></li>
                     </ul>
                     <ul class="right hide-on-med-and-down">                        
-                        <li><a href="#" class="waves-effect waves-block waves-light"><i class="mdi-editor-attach-money"><?php echo $balance;?></i></a>
+                        <li><a href="#" class="waves-effect waves-block waves-light"><i class="mdi mdi-currency-inr"></i></a>
                         </li>
                     </ul>					
                 </div>
@@ -197,11 +197,11 @@ if($continue){
 <ul id="issues-collection" class="collection">
 <?php
     echo '<li class="collection-item avatar">
-        <i class="mdi-content-content-paste red circle"></i>
-        <p><strong>Name:</strong>'.$name.'</p>
-		<p><strong>Contact Number:</strong> '.$contact.'</p>
-		<p><strong>Address:</strong> '.htmlspecialchars($_POST['address']).'</p>	
-		<p><strong>Payment Type:</strong> '.$_POST['payment_type'].'</p>			
+        <i class="mdi-content-content-paste black circle"></i>
+        <strong>Name:</strong>'.$name.'-
+		<strong>Contact Number:</strong> '.$contact.' -
+		<strong>Address:</strong> '.htmlspecialchars($_POST['address']).' - 	
+		<strong>Payment Type:</strong> '.$_POST['payment_type'].'			
         <a href="#" class="secondary-content"><i class="mdi-action-grade"></i></a>';
 		
 	foreach ($_POST as $key => $value)
